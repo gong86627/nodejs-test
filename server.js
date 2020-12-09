@@ -24,12 +24,22 @@ var server = http.createServer(function (request, response) {
     if (path === '/') {
         response.statusCode = 200
         response.setHeader('Content-Type', 'text/html;charset=utf-8')
-        response.write(`我来了，我来了`)
+        response.write(`
+            <html>
+                <head>
+                    <title>测试Node</title>
+                    <link rel="stylesheet" href="/style">
+                </head>
+                <body>
+                    <h1>他来了，他来了，他迈着步子走来了。</h1>
+                </body>
+            </html>
+        `)
         response.end()
-    } else if (path === '/x') {
+    } else if (path === '/style') {
         response.statusCode = 200
-        response.setHeader('Content-Type', 'text/html;charset=utf-8')
-        response.write(`body{color:red;}`)
+        response.setHeader('Content-Type', 'text/css;charset=utf-8')
+        response.write(`h1{color:red;}`)
         response.end()
     } else {
         response.statusCode = 404
